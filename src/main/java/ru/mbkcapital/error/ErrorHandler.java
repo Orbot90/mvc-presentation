@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -17,9 +18,9 @@ import java.util.Map;
  * Created by orbot on 08.03.16.
  */
 @ControllerAdvice
-public class ExceptionHandler extends ResponseEntityExceptionHandler {
+public class ErrorHandler extends ResponseEntityExceptionHandler {
 
-    @org.springframework.web.bind.annotation.ExceptionHandler({InvalidRequestException.class})
+    @ExceptionHandler({InvalidRequestException.class})
     protected ResponseEntity<Object> handleInvalidRequest(RuntimeException e, WebRequest request) {
         InvalidRequestException ire = (InvalidRequestException)e;
         Map<String, String> fieldErrorsMap = new HashMap<>();
