@@ -1,0 +1,11 @@
+<script type="text/ng-template" id="/third.html">
+    <form ng-submit="send()">
+        <label>Name: <input type="text" ng-model="form.name" ng-disabled="lock" ng-class="{'error': errors.name}"/></label><br />
+        <label>Email: <input type="email" ng-model="form.email" ng-disabled="lock" ng-class="{'error': errors.email}"/></label><br />
+        <input type="submit" value="Отправить" />
+    </form>
+    <div>
+        <p ng-show="response">Response: {{response}}</p>
+        <p ng-show="errors">Errors: {{errors}}</p>
+    </div>
+</script>

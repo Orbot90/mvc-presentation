@@ -1,0 +1,12 @@
+.error {
+    border-color: red;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}

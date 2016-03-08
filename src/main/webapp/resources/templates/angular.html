@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AngularJS application</title>
+    <link rel="stylesheet" th:href="@{/resources/css/styles.css}" />
+</head>
+<body ng-app="examples" ng-cloak="">
+<h1>Simple AngularJS web application</h1>
+<div ng-view=""></div>
+
+<div th:include="/tpl/first" />
+<div th:include="/tpl/second" />
+<div th:include="/tpl/third" />
+
+<script type="text/javascript" th:src="@{/resources/js/lib/angular.min.js}" />
+<script type="text/javascript" th:src="@{/resources/js/lib/angular-route.min.js}" />
+<script type="text/javascript" th:src="@{/resources/js/lib/jquery-2.2.0.min.js}" />
+
+<script type="text/javascript" th:src="@{/resources/js/application.js}" />
+
+<script type="text/javascript" th:src="@{/resources/js/controllers/thirdPageCtrl.js}" />
+</body>
+</html>
