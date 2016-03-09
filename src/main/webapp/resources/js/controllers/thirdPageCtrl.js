@@ -6,6 +6,8 @@ app.controller('ThirdPageController', ['$scope', '$http',
         $scope.form = {};
 
         $scope.send = function() {
+            $scope.errors = null;
+            $scope.response = null;
             var model = {
                 name: $scope.form.name,
                 email: $scope.form.email

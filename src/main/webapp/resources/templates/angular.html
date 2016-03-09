@@ -3,21 +3,29 @@
 <head>
     <title>AngularJS application</title>
     <link rel="stylesheet" th:href="@{/resources/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}" />
 </head>
-<body ng-app="examples" ng-cloak="">
+<body ng-app="examples" ng-cloak="" class="content">
 <h1>Simple AngularJS web application</h1>
 <div ng-view=""></div>
 
 <div th:include="/tpl/first" />
 <div th:include="/tpl/second" />
 <div th:include="/tpl/third" />
+<div th:include="/tpl/fourth" />
+<div th:include="/tpl/fileForm" />
 
 <script type="text/javascript" th:src="@{/resources/js/lib/angular.min.js}" />
 <script type="text/javascript" th:src="@{/resources/js/lib/angular-route.min.js}" />
 <script type="text/javascript" th:src="@{/resources/js/lib/jquery-2.2.0.min.js}" />
+<script type="text/javascript" th:src="@{/resources/js/lib/bootstrap.min.js}" />
 
 <script type="text/javascript" th:src="@{/resources/js/application.js}" />
 
 <script type="text/javascript" th:src="@{/resources/js/controllers/thirdPageCtrl.js}" />
+
+<script type="text/javascript" th:src="@{/resources/js/directives/fileInput.js}" />
+
+
 </body>
 </html>

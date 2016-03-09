@@ -1,7 +1,11 @@
 <script type="text/ng-template" id="/second.html">
-    <h2>Simple angular binding</h2>
-    <input type="text" ng-model="form.text" />
-    <p ng-bind="form.text"/>
-    <a href="#/first">Previous</a>
-    <a href="#/third">Next</a>
+    <div class="inner_content">
+        <h2>Simple angular binding</h2>
+        <div class="example_form">
+            <input type="text" ng-model="form.text" />
+            <p ng-bind="form.text"/>
+        </div>
+        <a href="#/first" class="previous">Previous</a>
+        <a href="#/third" class="next">Next</a>
+    </div>
 </script>

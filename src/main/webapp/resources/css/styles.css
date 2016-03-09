@@ -8,5 +8,82 @@
 
 img {
     width: 400px;
-    height: 400px;
+    height: 280px;
+    margin-top: 70px;
+}
+
+.file_upload input[type=file]{
+    position: absolute;
+    top: 0;
+    visibility: hidden
+}
+
+.file_upload {
+    font-family: cursive;
+    font-size: 20px;
+    border: 2px solid black;
+    width: 300px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 40px;
+}
+
+.file_upload button {
+    width: 100px;
+    background-color: darkgoldenrod;
+    border-radius:10px;
+    font-family: cursive;
+    font-size: 20px;
+    border-color: black;
+}
+
+.content {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.next {
+    padding-top: 20px;
+    float:right;
+}
+
+.previous {
+    padding-top: 20px;
+    float: left;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.inner_content {
+    width: 50%;
+    margin: auto;
+}
+
+.example_form {
+    padding-left: 30%;
+    margin-top: 20px;
+}
+
+.example_form input {
+    font-size: 25px;
+}
+
+.example_form p {
+    font-size: 35px;
+    font-family: cursive;
+}
+
+.responses {
+    padding-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-style: oblique;
 }

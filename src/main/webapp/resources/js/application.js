@@ -14,5 +14,8 @@ var app = angular.module("examples", ["ngRoute"])
                 templateUrl: '/third.html',
                 controller: 'ThirdPageController'
             })
+            .when('/fourth', {
+                templateUrl: '/fourth.html'
+            })
             .otherwise({ redirectTo: '/first'});
     }]);
