@@ -4,8 +4,10 @@
     <body>
         <div class="container">
             <h1>Hello with method Arguments!</h1>
-            <a href="?lang=ru">RUS</a><br/>
-            <a href="?lang=it">ITA</a>
+            <div class="list-group">
+                <a class="list-group-item" href="?lang=ru">RUS</a>
+                <a class="list-group-item" href="?lang=it">ITA</a>
+            </div>
             <div class="row" th:text="${session.mySessionAttribute}">
             </div>
             <div class="row">
@@ -13,6 +15,7 @@
                     <button type="submit" class="btn btn-primary">Press to post</button>
                 </form>
             </div>
+            <div th:replace="include/backHome"></div>
         </div>
     </body>
 </html>

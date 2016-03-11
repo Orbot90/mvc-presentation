@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="include/header"></head>
     <body>
-        <div class="container ">
+        <div class="container">
             <h1>Hello from get!</h1>
             <div class="row">
                 <form th:action="@{/rmp/show}" method="post">
@@ -12,6 +12,8 @@
             <div class="row">
                 <img th:src="@{/resources/img/panda1.jpg}" />
             </div>
+            <div th:replace="include/backHome"></div>
+
         </div>
     </body>
 </html>
