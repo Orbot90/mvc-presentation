@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Simple loop</title>
-</head>
+<head th:replace="include/header"></head>
 <body>
-<h1>Thymeleaf loop</h1>
-<ol>
-    <li th:each="number : ${#numbers.sequence( 1, 5 )}">Hello world!</li>
-</ol>
+    <div class="container">
+        <h1>Thymeleaf looping</h1>
+        <h3>Simple loop</h3>
+        <ol class="list-group">
+            <li class="list-group-item" th:each="number,iterStat : ${#numbers.sequence( 1, 5 )}" th:text="${iterStat.index}+' Hello world!'"></li>
+        </ol>
+
+        <h3>Loop over data list</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dto : ${dataList}">
+                <td th:text="${dto.name}"></td>
+                <td th:text="${dto.email}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Loop over data map</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Object</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dto : ${dataMap}">
+                <td th:text="${dto.key}"></td>
+                <td th:text="${dto.value.email}"></td>
+                <td th:text="${dto.value}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

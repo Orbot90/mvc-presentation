@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.mbkcapital.dto.SimpleFormDto;
+import org.springframework.web.servlet.ModelAndView;
+import ru.mbkcapital.utils.DataCreator;
 
 /**
  * Created by plevako on 10.03.2016.
@@ -19,16 +20,16 @@ public class ThymeleafExamplesController {
     }
 
     @RequestMapping(value = "/loop", method = RequestMethod.GET)
-    public String showLoop() {
-        return "ThymeleafLoop";
+    public ModelAndView showLoop() {
+        ModelAndView view = new ModelAndView("ThymeleafLoop");
+        view.addObject("dataList", DataCreator.initDataList());
+        view.addObject("dataMap", DataCreator.initDataMap());
+        return view;
     }
 
     @RequestMapping(value = "/model", method = RequestMethod.GET)
     public String showModelExample(ModelMap modelMap) {
-        SimpleFormDto dto = new SimpleFormDto();
-        dto.setName("Чебурашка");
-        dto.setEmail("cheburator1488@gmail.com");
-        modelMap.addAttribute("cheburator", dto);
+        modelMap.addAttribute("cheburator", DataCreator.createCheburator());
         modelMap.addAttribute("numberOfTheBeast", 666);
         return "ThymeleafModel";
     }

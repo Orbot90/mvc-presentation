@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Model example</title>
-</head>
+<head th:replace="include/header"></head>
 <body>
-<h1>Model receiving examples</h1>
-    <p>Number of the beast: <span th:text="${numberOfTheBeast}"/></p>
-    <p>Object: <span th:text="${cheburator}" /><br />
-    name: <span th:text="${cheburator.name}" /><br />
-    email: <span th:text="${cheburator.email}"/></p>
+    <div class="container">
+        <h1>Model receiving examples</h1>
+            <p>Number of the beast: <span th:text="${numberOfTheBeast}"/></p>
+            <p>Object: <span th:text="${cheburator}" /><br />
+            Name: <span th:text="${cheburator.name}" /><br />
+            Email: <span th:text="${cheburator.email}"/></p>
 
-    <p>Javascript cheburator: <span id="cheburator" /></p>
+            <p>Javascript cheburator: <span id="cheburator" /></p>
 
+    </div>
 
     <script th:inline="javascript">
         /*<![CDATA[*/
@@ -19,5 +19,6 @@
         /*]]>*/
         document.getElementById('cheburator').innerHTML = JSON.stringify(cheburator);
     </script>
+
 </body>
 </html>

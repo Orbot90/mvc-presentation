@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Title</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-</head>
+<head th:replace="include/header"></head>
 <body>
-<a href="?lang=ru">RUS</a><br/>
-<a href="?lang=en">ENG</a>
-
-    <p th:text="#{chequepay.name}"></p>
+    <div class="container">
+        <h1>Locales</h1>
+        <div class="list-group">
+            <a class="list-group-item" href="?lang=ru">RUS</a>
+            <a class="list-group-item" href="?lang=en">ENG</a>
+        </div>
+        <p th:text="#{chequepay.name}"></p>
+    </div>
 </body>
 </html>

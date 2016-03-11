@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 import ru.mbkcapital.dto.SimpleFormDto;
+import ru.mbkcapital.utils.DataCreator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -92,36 +93,24 @@ public class RequestMappingController {
 
     @RequestMapping(value = "/mm", method = RequestMethod.GET)
     public String mm(Model model) {
-        model.addAttribute("bob", initBob());
+        model.addAttribute("bob", DataCreator.createBob());
         return "rmp/mm";
     }
 
     @RequestMapping(value = "/mm1", method = RequestMethod.GET)
     public ModelAndView mm1() {
-        return new ModelAndView("rmp/mm","bob", initBob());
+        return new ModelAndView("rmp/mm","bob", DataCreator.createBob());
     }
 
     @ModelAttribute("sara")
     public SimpleFormDto mm2() {
-        return initSara();
+        return DataCreator.createSara();
     }
 
 
 
 
-    private SimpleFormDto initBob() {
-        SimpleFormDto dto = new SimpleFormDto();
-        dto.setName("Bob");
-        dto.setEmail("bob@bob.bob");
-        return dto;
-    }
 
-    private SimpleFormDto initSara() {
-        SimpleFormDto dto = new SimpleFormDto();
-        dto.setName("Sara");
-        dto.setEmail("sara@sara.sara");
-        return dto;
-    }
 
 
 }
