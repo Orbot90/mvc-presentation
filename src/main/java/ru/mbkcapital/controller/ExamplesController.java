@@ -20,23 +20,4 @@ public class ExamplesController {
         return "index";
     }
 
-    @RequestMapping(value = "/angularapp", method = RequestMethod.GET)
-    public String showAngularApp() {
-        return "angular";
-    }
-
-    @RequestMapping(value = "/thirdpagepost", method = RequestMethod.POST)
-    @ResponseBody
-    public SimpleFormDto postThirdPage(@Valid SimpleFormDto dto, BindingResult errors) {
-        if(errors.hasErrors()) {
-            throw new InvalidRequestException("Invalid request", errors);
-        }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        dto.setName(dto.getName() + ", великий и ужасный!");
-        return dto;
-    }
 }
