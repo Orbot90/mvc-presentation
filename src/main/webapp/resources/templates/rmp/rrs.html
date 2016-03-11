@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/header"></head>
+    <body>
+        <div class="container">
+            <h1>Hello with method Arguments!</h1>
+            <div class="row" th:text="${session.mySessionAttribute}">
+            </div>
+            <div class="row">
+                <form th:action="@{/rmp/rrs}" method="post">
+                    <button type="submit" class="btn btn-primary">Press to post</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

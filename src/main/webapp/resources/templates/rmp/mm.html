@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/header"></head>
+    <body>
+        <div class="container">
+            <h1>Hello with data!</h1>
+            <div class="row" th:text="${bob.name}">
+            </div>
+            <div class="row" th:text="${bob.email}">
+            </div>
+            <br/>
+            <div class="row" th:text="${sara.name}">
+            </div>
+            <div class="row" th:text="${sara.email}">
+            </div>
+            <br/>
+            <div class="row" >
+                <li><a th:href="@{/rmp/mm}">With Model</a></li>
+                <li><a th:href="@{/rmp/mm1}">With ModelAndView</a></li>
+            </div>
+
+        </div>
+    </body>
+</html>

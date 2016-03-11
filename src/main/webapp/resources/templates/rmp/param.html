@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/header"></head>
+<body>
+<div class="container">
+    <h1>Hello with params!</h1>
+    <h1 th:text="${param.view[0]}" th:unless="${param.view == null}">Test</h1>
+    <div class="row">
+        <img th:src="@{/resources/img/ji.png}" />
+    </div>
+</div>
+</body>
+</html>
