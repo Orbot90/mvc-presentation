@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="include/header"></head>
+</head>
+<body>
+<div th:replace="include/fragments :: ${someparam} ? 'fragmenttrue' : 'fragmentfalse'" />
+</body>
+</html>

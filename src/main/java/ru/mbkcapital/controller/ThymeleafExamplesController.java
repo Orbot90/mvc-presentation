@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ru.mbkcapital.utils.DataCreator;
 
@@ -37,6 +38,12 @@ public class ThymeleafExamplesController {
     @RequestMapping(value = "/locales", method = RequestMethod.GET)
     public String showLocalesExample() {
         return "ThymeleafLocales";
+    }
+
+    @RequestMapping(value = "/fragments", method = RequestMethod.GET)
+    public String showFragmentsExample(ModelMap model, @RequestParam Boolean someparam) {
+        model.addAttribute("someparam", someparam);
+        return "ThymeleafFragments";
     }
 
 }

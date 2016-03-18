@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="include/header"></head>
+<head xmlns:th="http://www.thymeleaf.org">
+    <title>MVC Examples</title>
+    <link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/resources/css/styles.css}" href="../css/styles.css"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
 <body>
     <div class="container">
         <h1>Thymeleaf looping</h1>
         <h3>Simple loop</h3>
         <ol class="list-group">
-            <li class="list-group-item" th:each="number,iterStat : ${#numbers.sequence( 1, 5 )}" th:text="${iterStat.index}+' Hello world!'"></li>
+            <li class="list-group-item" th:each="number,iterStat : ${#numbers.sequence( 1, 5 )}" th:text="${iterStat.index}+' Hello world!'">Hello world!</li>
         </ol>
 
         <h3>Loop over data list</h3>
@@ -19,8 +24,8 @@
             </thead>
             <tbody>
             <tr th:each="dto : ${dataList}">
-                <td th:text="${dto.name}"></td>
-                <td th:text="${dto.email}"></td>
+                <td th:text="${dto.name}">Name</td>
+                <td th:text="${dto.email}">Email</td>
             </tr>
             </tbody>
         </table>
@@ -36,9 +41,9 @@
             </thead>
             <tbody>
             <tr th:each="dto : ${dataMap}">
-                <td th:text="${dto.key}"></td>
-                <td th:text="${dto.value.email}"></td>
-                <td th:text="${dto.value}"></td>
+                <td th:text="${dto.key}">Arnold</td>
+                <td th:text="${dto.value.email}">schwarz@gmail.com</td>
+                <td th:text="${dto.value}">com.skynet.Terminator@666d</td>
             </tr>
             </tbody>
         </table>

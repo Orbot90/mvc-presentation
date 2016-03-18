@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head xmlns:th="http://www.thymeleaf.org">
+    <title>MVC Examples</title>
+    <link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/resources/css/styles.css}" href="../../css/styles.css"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+    <div th:fragment="fragmenttrue" class="fragmentdiv">
+        Этот фрагмент будет включён в файл, если значение someparam = true<br />
+        <img src="http://s9.favim.com/mini/140205/bar-barney-stinson-blick-bro-Favim.com-1340703.jpg" />
+    </div>
+    <br />
+    <div th:fragment="fragmentfalse" class="fragmentdiv">
+        Этот фрагмент, напротив, будет включён в файл, если значение someparam = false<br />
+        <img src="http://i.qkme.me/36d15w.jpg" />
+    </div>
+</body>
+</html>
