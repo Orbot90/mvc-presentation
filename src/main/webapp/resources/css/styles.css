@@ -89,6 +89,7 @@ h2 {
 }
 
 .fragmentdiv {
+    font-size: 22px;
     margin: 0 auto;
     text-align: center;
     border: 2px solid black;
