@@ -23,8 +23,16 @@ dependencies {
             "org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE",
             "javax.servlet:javax.servlet-api:3.1.0",
             "com.fasterxml.jackson.core:jackson-databind:2.5.4",
-            "org.hibernate:hibernate-validator:5.2.2.Final"
-    testCompile 'junit:junit:4.11',
+            "org.hibernate:hibernate-validator:5.2.2.Final",
+            "org.springframework:spring-tx:${springVersion}",
+            'org.springframework.data:spring-data-jpa:1.9.4.RELEASE',
+            'org.hibernate:hibernate-entitymanager:5.1.0.Final',
+            'org.hibernate:hibernate-validator:5.2.4.Final',
+            'postgresql:postgresql:9.1-901.jdbc4',
+            'javax.el:javax.el-api:3.0.1-b04'
+        testCompile 'junit:junit:4.11',
             "org.springframework:spring-test:${springVersion}",
-            'org.skyscreamer:jsonassert:1.2.3'
+            'org.skyscreamer:jsonassert:1.2.3',
+            "org.springframework:spring-jdbc:${springVersion}",
+            'org.hsqldb:hsqldb:2.3.3'
 }

@@ -1,29 +1,23 @@
-package ru.mbkcapital.configuration;
+package ru.mbkcapital.config;
 
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import ru.mbkcapital.configuration.MVCConfig;
 
 /**
- * Created by orbot on 08.03.16.
+ * Created by orbot on 02.04.16.
  */
 @Configuration
-@ComponentScan(basePackages = "ru.mbkcapital")
-public class AppConfig {
-
-    @Bean
-    public PropertyPlaceholderConfigurer propertyConfigurer() {
-        PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
-        configurer.setLocation(new ClassPathResource("application.properties"));
-        return configurer;
-    }
-
+@Import({MVCConfig.class, JPATestConfig.class})
+@ComponentScan(basePackages = "ru.mbkcapital",
+        excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION,
+                value = Configuration.class))
+public class TestConfig {
     @Bean
     public MultipartResolver multipartResolver() {
         return new StandardServletMultipartResolver();
@@ -36,5 +30,12 @@ public class AppConfig {
         messageSource.setBasename("messages/messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
+    }
+
+    @Bean
+    public PropertyPlaceholderConfigurer propertyConfigurer() {
+        PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
+        configurer.setLocation(new ClassPathResource("application.properties"));
+        return configurer;
     }
 }

@@ -14,8 +14,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import ru.mbkcapital.config.TestConfig;
 import ru.mbkcapital.configuration.AppConfig;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Created by orbot on 02.04.16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(classes = TestConfig.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 @WebAppConfiguration
 public class ToDoControllerTest extends TestCase {
@@ -35,6 +37,7 @@ public class ToDoControllerTest extends TestCase {
     private MockMvc mockMvc;
 
     private static final String TEST_JSON = "{\"name\": \"lol\", \"email\": \"lol@mail.ru\"}";
+    private static final String TEST_JSON_2 = "{\"someValue\": \"lol\"}";
     private static final String EXPECTED_RESPONSE = "{\"name\":\"lol after process\",\"email\":\"lol@mail.ru after process\"}";
 
     @Before
@@ -53,5 +56,16 @@ public class ToDoControllerTest extends TestCase {
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());
                 });
+    }
+
+    @Test
+    public void postEntity() throws Exception {
+        mockMvc.perform(post("/post_entity")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TEST_JSON_2))
+                .andExpect(status().is(201));
+
+        mockMvc.perform(get("/get_entities"))
+                .andDo(result -> System.out.println(result.getResponse().getContentAsString()));
     }
 }
