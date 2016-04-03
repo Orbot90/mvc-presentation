@@ -3,7 +3,6 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -57,13 +56,6 @@ dependencies {
                 'com.github.springtestdbunit:spring-test-dbunit:1.2.1'
 
 
-}
-
-idea {
-    module {
-        scopes.TEST.plus += [configurations.integTestCompile]
-        scopes.TEST.plus += [configurations.integTestRuntime]
-    }
 }
 
 task integrationTest(type: Test) {
